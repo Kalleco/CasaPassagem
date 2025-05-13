@@ -1,0 +1,27 @@
+<?php
+$db = new PDO("sqlite:db.sqlite");
+$db->exec("
+ CREATE TABLE IF NOT EXISTS moradores(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL,
+    idade INTEGER NOT NULL,
+    data_nasc TEXT NOT NULL,
+    rg TEXT NOT NULL,
+    cpf TEXT NOT NULL,
+    cidade_origem TEXT NOT NULL
+    );
+ ");
+
+ $db->exec("
+ CREATE TABLE IF NOT EXISTS hospedagens(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    morador_id INTEGER,
+    data_checkin TEXT,
+    data_checkout TEXT,
+    jantou TEXT,
+    passagem TEXT,
+    destino TEXT,
+    FOREIGN KEY (morador_id) REFERENCES moradores(id)
+    );
+");
+?>
