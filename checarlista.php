@@ -26,10 +26,7 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <table border = "2" cellpadding = "10">
             <tr>
                 <th>Nome:</th>
-                <th>Idade:</th>
                 <th>Data Nasc:</th>
-                <th>RG:</th>
-                <th>CPF:</th>
                 <th>Cidade Origem:</th>
                 <th>Check-in:</th>
                 <th>Check-out:</th>
@@ -40,10 +37,7 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <?php foreach ($moradores as $m): ?>
                 <tr>
                 <td><?php echo ($m['nome'])?></td>
-                <td><?php echo ($m['idade'])?></td>
                 <td><?php echo ($m['data_nasc'])?></td>
-                <td><?php echo ($m['rg'])?></td>
-                <td><?php echo ($m['cpf'])?></td>
                 <td><?php echo ($m['cidade_origem'])?></td>
                 <td><?php echo ($m['data_checkin'])?></td>
                 <td><?php echo($m['data_checkout'])?></td>
