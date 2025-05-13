@@ -58,5 +58,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $morador_id &&
             <p>Morador não encontrado.</p>
         <?php endif; ?>
 
-        <a href="index.html">voltar</a>"
+        <a href="../index.html">voltar</a>"
     </body>

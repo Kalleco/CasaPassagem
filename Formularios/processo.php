@@ -1,5 +1,6 @@
 <?php
 $db = new PDO("sqlite:db.sqlite");
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $db->exec("
  CREATE TABLE IF NOT EXISTS moradores(
     id INTEGER PRIMARY KEY AUTOINCREMENT,

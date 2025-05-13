@@ -1,5 +1,5 @@
 <?php
-require 'processo.php';
+require 'Formularios/processo.php';
 
 $sql = "SELECT h.id AS hospedagens, h.jantou, h.passagem, h.destino, 
 m.id AS morador_id, m.nome, m.idade, m.data_nasc, m.rg, m.cpf, m.cidade_origem, h.data_checkin, h.data_checkout
@@ -33,6 +33,7 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <th>Jantou:</th>
                 <th>Passagem:</th>
                 <th>Destino:</th>
+                <th>AÇÃO:</th>
             </tr>
             <?php foreach ($moradores as $m): ?>
                 <tr>
@@ -44,6 +45,12 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td><?php echo($m['jantou'])?></td>
                 <td><?php echo($m['passagem'])?></td>
                 <td><?php echo($m['destino'])?></td>
+                <td>
+                <form method="post" action = delete.php onsubmit="return confirm('Confirma a exclusão do registro?')">
+                    <input type="hidden" name="id" value="<?php echo $m['morador_id']?>">
+                    <button type = "submit">Apagar</button>
+                </form><br>
+                </td>
                 </td>
                 </tr>
             <?php endforeach; ?>
