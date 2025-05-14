@@ -30,5 +30,5 @@ $stmt->execute( [
     $morador_id,
 ]);
 
-echo "Check-in feito com sucesso! <a href='index.php'>Voltar</a>";
+echo "Check-in feito com sucesso! <a href='../index.php'>Voltar</a>";
 ?>

@@ -20,7 +20,7 @@ try {
     }
 
 } else {
-    echo "Erro ao deletar morador. <a href='index.php'>Voltar</a>";
+    echo "Erro ao deletar morador. <a href='../index.php'>Voltar</a>";
 }
 
 ?>

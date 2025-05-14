@@ -3,7 +3,7 @@
     $id = $_GET['id'] ?? null;
 
     if(!$id){
-        echo "Morador não encontrador.";
+        echo "ID não encontrado.";
         exit;
     }
 
@@ -27,7 +27,7 @@
     </head>
     <body>
         <h1>Editar Cadastro</h1>
-        <?php if ($morador_id): ?>
+        <?php if ($morador): ?>
             <form method = "post" action = "atualizar.php">
                 <input type="hidden" name="id" value="<?php echo $morador['id'] ?>">
 

@@ -49,7 +49,7 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <form method="post" action = delete.php onsubmit="return confirm('Confirma a exclusão do registro?')">
                     <input type="hidden" name="id" value="<?php echo $m['morador_id']?>">
                     <button type = "submit">Apagar</button>
-                </form><br>
+                </form>
                 </td>
                 </td>
                 </tr>

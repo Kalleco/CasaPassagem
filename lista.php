@@ -44,15 +44,15 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td><?php echo ($m['cidade_origem'])?></td>
                 <td><?php echo ($m['data_checkin'])?></td>
                 <td>
-                <form method="get" action = Formularios/checkout.php onsubmit="return confirm('Deseja confirmar o check-out?')">
+                <form method="get" action = "Formularios/checkout.php" onsubmit="return confirm('Deseja confirmar o check-out?')">
                     <input type="hidden" name="id" value="<?php echo $m['morador_id']?>">
                     <button type = "submit">Check-out</button>
                 </form><br>
-                <form method="post" action = Formularios/delete.php onsubmit="return confirm('Confirma a exclusão do registro?')">
+                <form method="post" action = "Formularios/delete.php" onsubmit="return confirm('Confirma a exclusão do registro?')">
                     <input type="hidden" name="id" value="<?php echo $m['morador_id']?>">
                     <button type = "submit">Apagar</button>
                 </form><br>
-                <form method="post" action = Formularios/editar.php onsubmit="return confirm('Deseja editar alguma informação?')">
+                <form method="get" action = "Formularios/editar.php" onsubmit="return confirm('Deseja editar alguma informação?')">
                     <input type="hidden" name="id" value="<?php echo $m['morador_id']?>">
                     <button type = "submit">Editar</button>
                 </form>

@@ -1,6 +1,9 @@
 <?php
-$db = new PDO("sqlite:db.sqlite");
+$dbPath = __DIR__ . "/db.sqlite"; // Define o caminho do arquivo SQLite
+
+$db = new PDO("sqlite:" . $dbPath);// Cria uma conexão com o Bd e define o caminho do arquivo
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 $db->exec("
  CREATE TABLE IF NOT EXISTS moradores(
     id INTEGER PRIMARY KEY AUTOINCREMENT,

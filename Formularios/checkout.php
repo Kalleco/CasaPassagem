@@ -17,10 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $morador_id &&
         $_POST['destino'],
         $morador_id
     ]);
-    echo "Check-out feito com sucesso! <a href='index.php'>Voltar</a>";
-} else {
-    echo "Erro ao fazer check-out. <a href='index.php'>Voltar</a>";
-}
+    echo "Check-out feito com sucesso! <a href='../index.php'>Voltar</a>";
+} 
 ?>
 
 <!DOCTYPE html>
@@ -58,5 +56,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $morador_id &&
             <p>Morador não encontrado.</p>
         <?php endif; ?>
 
-        <a href="../index.html">voltar</a>"
+        <a href="../index.html">voltar</a>
     </body>

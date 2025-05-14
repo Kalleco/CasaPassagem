@@ -1,7 +1,7 @@
 <?php
 require 'processo.php';
 
-if($_SERVER['REQUEST_MOTHOD'] === 'POST' && isset($_POST['id'])){
+if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])){
     $stmt = $db->prepare("
     UPDATE moradores SET
     nome = ?,
@@ -23,9 +23,9 @@ if($_SERVER['REQUEST_MOTHOD'] === 'POST' && isset($_POST['id'])){
         $_POST['id']
     ]);
 
-    echo "Cadastro atualizado com sucesso! <a href='index.php'>Voltar</a>";
+    echo "Cadastro atualizado com sucesso! <a href='../index.php'>Voltar</a>";
 } else {
-    echo "Erro ao atualizar cadastro. <a href='index.php'>Voltar</a>";
+    echo "Erro ao atualizar cadastro. <a href='../index.php'>Voltar</a>";
 }
 
 ?>
