@@ -8,11 +8,11 @@ $db->exec("
  CREATE TABLE IF NOT EXISTS moradores(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nome TEXT NOT NULL,
-    idade INTEGER NOT NULL,
     data_nasc TEXT NOT NULL,
     rg TEXT NOT NULL,
     cpf TEXT NOT NULL,
-    cidade_origem TEXT NOT NULL
+    cidade_origem TEXT NOT NULL,
+    beneficio TEXT NOT NULL
     );
  ");
 
@@ -23,8 +23,10 @@ $db->exec("
     data_checkin TEXT,
     data_checkout TEXT,
     jantou TEXT,
+    banho TEXT,
     passagem TEXT,
     destino TEXT,
+    atendente TEXT,
     FOREIGN KEY (morador_id) REFERENCES moradores(id)
     );
 ");

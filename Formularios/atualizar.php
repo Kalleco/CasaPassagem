@@ -5,21 +5,21 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])){
     $stmt = $db->prepare("
     UPDATE moradores SET
     nome = ?,
-    idade = ?,
     data_nasc = ?,
     rg = ?,
     cpf = ?,
-    cidade_origem = ?
+    cidade_origem = ?,
+    beneficio = ?,
     WHERE id = ?
     ");
 
     $stmt->execute([
         $_POST['nome'],
-        $_POST['idade'],
         $_POST['data_nasc'],
         $_POST['rg'],
         $_POST['cpf'],
         $_POST['cidade_origem'],
+        $_POST['beneficio'],
         $_POST['id']
     ]);
 

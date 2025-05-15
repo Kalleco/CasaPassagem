@@ -13,7 +13,7 @@ try {
     $stmt2 = $db->prepare("DELETE FROM moradores WHERE id = ?");
     $stmt2->execute([$id]);
 
-    echo "Morador deletado com sucesso! <a href='index.php'>Voltar</a>";
+    echo "Morador deletado com sucesso! <a href='../index.php'>Voltar</a>";
 
     } catch (PDOException $e) {
         echo "Erro ao excluir: " . $e->getMessage();

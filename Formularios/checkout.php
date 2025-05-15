@@ -4,17 +4,19 @@ $morador_id = $_GET['id'] ?? null;
 
 /*if($morador_id && isset($_POST['jantou']) && isset($_POST['passagem']) && isset($_POST['destino']))*/
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $morador_id &&
-    isset($_POST['jantou'], $_POST['passagem'], $_POST['destino'])) {
+    isset($_POST['jantou'], $_POST['passagem'], $_POST['destino'], $_POST['banho'], $_POST['atendente'])) {
     // Verifica se o morador já existe no banco
     $stmt = $db->prepare(
         "UPDATE hospedagens 
-        SET data_checkout = datetime('now'), jantou = ?, passagem = ?, destino = ? 
+        SET data_checkout = datetime('now'), jantou = ?, passagem = ?, destino = ?, banho = ?, atendente = ?
         WHERE morador_id = ? and data_checkout is NULL");
 
     $stmt->execute([
         $_POST['jantou'],
         $_POST['passagem'],
         $_POST['destino'],
+        $_POST['banho'],
+        $_POST['atendente'],
         $morador_id
     ]);
     echo "Check-out feito com sucesso! <a href='../index.php'>Voltar</a>";
@@ -40,6 +42,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $morador_id &&
                     <option value="Não">não</option>
                 </select><br>
 
+                <label for="banho">Tomou banho:</label>
+                <select name="banho" required>
+                    <option value="">Selecione</option>
+                    <option value="Sim">Sim</option>
+                    <option value="Não">não</option>
+                </select><br>
+
                 <label for="passagem">Recebeu passagem?:</label>
                 <select name="passagem" required>
                     <option value="">Selecione</option>
@@ -49,6 +58,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $morador_id &&
 
                 <label for="destino">Destino:</label>
                 <input type="text" name="destino"><br>
+
+                <label for="atendente">Atendente:</label>
+                <input type="text" name="atendente"><br>
 
                 <input type="submit" value="Finalizar Check-out">
             </form>

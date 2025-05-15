@@ -34,9 +34,6 @@
                 <label for="nome">Nome:</label>
                 <input type="text" name="nome" value="<?php echo $morador['nome'] ?>" required><br>
 
-                <label for="idade">Idade:</label>
-                <input type="number" name="idade" value="<?php echo $morador['idade'] ?>" required><br>
-
                 <label for="data_nasc">Data Nasc:</label>
                 <input type="date" name="data_nasc" value="<?php echo $morador['data_nasc'] ?>"><br>
 
@@ -48,6 +45,10 @@
 
                 <label for="cidade_origem">Cidade Origem:</label>
                 <input type="text" name="cidade_origem" value="<?php echo $morador['cidade_origem'] ?>"><br>
+
+                <label for="beneficio">Beneficio:</label>
+                <input type="text" name="beneficio" value="<?php echo $morador['beneficio'] ?>" required><br>
+
 
                 <input type="submit" value="Editar Cadastro">
             </form>
