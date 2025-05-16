@@ -47,24 +47,24 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td>
                 <form method="get" action = "Formularios/checkout.php" onsubmit="return confirm('Deseja confirmar o check-out?')">
                     <input type="hidden" name="id" value="<?php echo $m['morador_id']?>">
-                    <button type = "submit">Check-out</button>
+                    <button class="btn btn-success" type = "submit">Check-out</button>
                 </form>
                 <form method="post" action = "Formularios/delete.php" onsubmit="return confirm('Confirma a exclusão do registro?')">
                     <input type="hidden" name="id" value="<?php echo $m['morador_id']?>">
-                    <button type = "submit">Apagar</button>
+                    <button class="btn btn-danger" type = "submit">Apagar</button>
                 </form>
                 <form method="get" action = "Formularios/editar.php" onsubmit="return confirm('Deseja editar alguma informação?')">
                     <input type="hidden" name="id" value="<?php echo $m['morador_id']?>">
-                    <button type = "submit">Editar</button>
+                    <button class="btn btn-info" type = "submit">Editar</button>
                 </form>
                 </td>
                 </tr>
             <?php endforeach; ?>
         </table>
+        <button type ="button" class="btn btn-secondary" onclick="window.location.href='index.php'">Voltar</button>
+        <button type ="button" class="btn btn-secondary" onclick="window.location.href='checarlista.php'">Lista Check-out</button><br>
         </div>
         <?php endif; ?>
-        <a href="index.html">Voltar</a><br>
-        <a href="checarlista.php">Lista de check-out</a>
 
          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">      
         </script>

@@ -63,7 +63,7 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </tr>
             <?php endforeach; ?>
         </table>
-        <a href="index.html">voltar</a>
+        <button type ="button" class="btn btn-secondary" onclick="window.location.href='index.php'">Voltar</button><br>
         </div>
         <?php endif; ?>
         

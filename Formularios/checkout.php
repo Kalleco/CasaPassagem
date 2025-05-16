@@ -29,44 +29,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $morador_id &&
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Check-out</title>
-        <link rel="stylesheet" href="style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> 
     </head>
     <body>
+        <div class="container">
         <h1>Check-out</h1>
         <?php if ($morador_id): ?>
             <form method = "post" action = "checkout.php?id=<?php echo $morador_id ?>" onsubmit="return confirm('Deseja fazer o check-out?')">
                 <label for="jantou">Jantou:</label>
-                <select name="jantou" required>
+                <select class ="form-select" name="jantou" required>
                     <option value="">Selecione</option>
                     <option value="Sim">Sim</option>
                     <option value="Não">não</option>
                 </select><br>
 
                 <label for="banho">Tomou banho:</label>
-                <select name="banho" required>
+                <select class ="form-select" name="banho" required>
                     <option value="">Selecione</option>
                     <option value="Sim">Sim</option>
                     <option value="Não">não</option>
                 </select><br>
 
                 <label for="passagem">Recebeu passagem?:</label>
-                <select name="passagem" required>
+                <select class ="form-select" name="passagem" required>
                     <option value="">Selecione</option>
                     <option value="Sim">Sim</option>
                     <option value="Não">não</option>
                 </select><br>
 
                 <label for="destino">Destino:</label>
-                <input type="text" name="destino"><br>
+                <input type="text" class="form-control" name="destino"><br>
 
                 <label for="atendente">Atendente:</label>
-                <input type="text" name="atendente"><br>
+                <input type="text" class="form-control" name="atendente"><br>
 
-                <input type="submit" value="Finalizar Check-out">
+                <button class="btn btn-success" type="submit" value="Finalizar Check-out">Finalizar Check-out</button>
+                <button type ="button" class="btn btn-secondary" onclick="window.location.href='../index.php'">Voltar</button><br>
             </form>
+            </div>
         <?php else: ?>
             <p>Morador não encontrado.</p>
         <?php endif; ?>
 
-        <a href="../index.html">voltar</a>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">      
+        </script>
     </body>
