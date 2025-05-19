@@ -26,6 +26,23 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <header class="p-3 mb-4 border-down bg-white text-white">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="../index.html" class="nav-link px-2 text-secondary">Home</a></li>
+          <li><a href="lista.php" class="nav-link px-2">Lista Check-In</a></li>
+          <li><a href="checarlista.php" class="nav-link px-2">Lista Check-Out</a></li>
+        </ul>
+
+        <div class="text-end">
+          <a href="../cadmorador.html" class="btn btn-outline-success md-2">Cadastro</a>
+        </div>
+      </div>
+    </header>
         <h1>Editar Cadastro</h1>
         <?php if ($morador): ?>
             <form method = "post" action = "atualizar.php">
