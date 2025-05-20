@@ -18,6 +18,7 @@
           <li><a href="index.html" class="nav-link px-2 text-secondary">Home</a></li>
           <li><a href="lista.php" class="nav-link px-2">Lista Check-In</a></li>
           <li><a href="checarlista.php" class="nav-link px-2">Lista Check-Out</a></li>
+          <li><a href="fazcheckin.php" class="nav-link px-2">Lista de moradores</a></li>
         </ul>
 
         <div class="text-end">
@@ -27,7 +28,7 @@
     </header>
         </header>
         <div class ="container">
-        <form action ="/Formularios/checkin.php" method = "POST">
+        <form action ="/Formularios/moradores.php" method = "POST">
             <span class="input-group-text" for="nome">Nome:</span>
             <input type="text" class="form-control" id="nome" name="nome" required><br>
             
@@ -76,13 +77,12 @@
 
                 function validateForm() {
                     const nome = document.getElementById('nome').value;
-                    const idade = document.getElementById('idade').value;
                     const datanasc = document.getElementById('data_nasc').value;
                     const cidadeorigem = document.getElementById('cidade_origem').value;
                     const rg = document.getElementById('rg').value;
                     const cpf = document.getElementById('cpf').value;
 
-                    if (!nome || !idade || !datanasc || !cidadeorigem || !rg || !cpf) {
+                    if (!nome || !datanasc || !cidadeorigem || !rg || !cpf) {
                         alert("Por favor, preencha todos os campos obrigatórios.");
                         return false;
                     }

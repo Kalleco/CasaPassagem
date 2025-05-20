@@ -31,6 +31,7 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
           <li><a href="index.html" class="nav-link px-2 text-secondary">Home</a></li>
           <li><a href="lista.php" class="nav-link px-2">Lista Check-In</a></li>
           <li><a href="checarlista.php" class="nav-link px-2">Lista Check-Out</a></li>
+          <li><a href="fazcheckin.php" class="nav-link px-2">Lista de moradores</a></li>
         </ul>
 
         <div class="text-end">
@@ -41,7 +42,7 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="container">
         <h1>Lista Check-in</h1>
         <?php if (count($moradores) > 0): ?>
-        <table class="table table-bordered table-sm table-responsive">
+        <table class="table table-bordered table-sm table-hover table-responsive">
             <tr>
                 <th>Nome:</th>
                 <th>Data Nasc:</th>
@@ -63,26 +64,23 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td><?php echo ($m['data_checkin'])?></td>
                 <td>
                 <form method="get" action = "Formularios/checkout.php" onsubmit="return confirm('Deseja confirmar o check-out?')">
-                    <input type="hidden" name="id" value="<?php echo $m['morador_id']?>">
+                    <input type="hidden" name="id" value="<?php echo $m['hospedagens']?>">
                     <button class="btn btn-success" type = "submit">Check-out</button>
                 </form>
                 <form method="post" action = "Formularios/delete.php" onsubmit="return confirm('Confirma a exclusão do registro?')">
-                    <input type="hidden" name="id" value="<?php echo $m['morador_id']?>">
+                    <input type="hidden" name="id" value="<?php echo $m['hospedagens']?>">
                     <button class="btn btn-danger" type = "submit">Apagar</button>
-                </form>
-                <form method="get" action = "Formularios/editar.php" onsubmit="return confirm('Deseja editar alguma informação?')">
-                    <input type="hidden" name="id" value="<?php echo $m['morador_id']?>">
-                    <button class="btn btn-info" type = "submit">Editar</button>
                 </form>
                 </td>
                 </tr>
             <?php endforeach; ?>
         </table>
-        <button type ="button" class="btn btn-secondary" onclick="window.location.href='index.php'">Voltar</button>
-        <button type ="button" class="btn btn-secondary" onclick="window.location.href='checarlista.php'">Lista Check-out</button><br>
         </div>
         <?php endif; ?>
-
+        <div class="mt-3">
+        <button type ="button" class="btn btn-secondary" onclick="window.location.href='index.php'">Voltar</button>
+        <button type ="button" class="btn btn-secondary" onclick="window.location.href='checarlista.php'">Histórico</button><br>
+        </div>
          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">      
         </script>
     </body>

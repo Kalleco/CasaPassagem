@@ -1,34 +1,34 @@
 <?php
 require 'processo.php';
 
-$stmt = $db->prepare(" SELECT id FROM moradores WHERE nome = ? AND cpf = ?"); // Preparando a consulta SQl segura
-$stmt->execute([$_POST['nome'], $_POST['cpf']]);//Executa a consulta com os dados do formulario
-$morador = $stmt->fetch();
-
-// Verifica se o morador já existe no banco
-if ($morador){
-    $morador_id = $morador['id'];
-
-} else{
-    $stmt = $db->prepare("INSERT INTO moradores (nome, data_nasc, rg, cpf, cidade_origem, beneficio) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->execute([
-        $_POST['nome'],
-        $_POST['data_nasc'],
-        $_POST['rg'],
-        $_POST['cpf'],
-        $_POST['cidade_origem'],
-        $_POST['beneficio']
-    ]);
-    $morador_id = $db->lastInsertId(); // Pega o id do morador que acabou de ser inserido
+if (!isset($_GET['id'])) {
+    die("ID do morador não informado.");
 }
 
-// Nova hospedagem  
-$stmt = $db->prepare("INSERT INTO hospedagens (morador_id, data_checkin) 
-VALUES (?, datetime('now'))");
+$moradorId = $_GET['id'];
+$dataCheckin = date('d-m-y H:i:s');
 
-$stmt->execute( [
-    $morador_id,
-]);
+// Verifica se o morador já tem hospedagem ativa
+$sql = "SELECT * FROM hospedagens WHERE morador_id = :id AND data_checkout IS NULL";
+$stmt = $db->prepare($sql);
+$stmt->bindValue(':id', $moradorId, PDO::PARAM_INT);
+$stmt->execute();
+$hospedagemAtiva = $stmt->fetch();
 
-echo "Check-in feito com sucesso! <a href='../index.php'>Voltar</a>";
+if ($hospedagemAtiva) {
+    echo "Este morador já possui um check-in ativo.";
+    echo "<br><a href='../lista.php'>Voltar para a lista</a>";
+    exit;
+}
+
+// Insere nova hospedagem (check-in)
+$sql = "INSERT INTO hospedagens (morador_id, data_checkin) VALUES (:id, :data)";
+$stmt = $db->prepare($sql);
+$stmt->bindValue(':id', $moradorId, PDO::PARAM_INT);
+$stmt->bindValue(':data', $dataCheckin);
+$stmt->execute();
+
+// Redireciona para a lista
+header("Location: ../lista.php");
+exit;
 ?>
