@@ -29,8 +29,8 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="index.html" class="nav-link px-2 text-secondary">Home</a></li>
-          <li><a href="lista.php" class="nav-link px-2">Lista Check-In</a></li>
-          <li><a href="checarlista.php" class="nav-link px-2">Lista Check-Out</a></li>
+          <li><a href="lista.php" class="nav-link px-2">Check-In</a></li>
+          <li><a href="checarlista.php" class="nav-link px-2">Histórico</a></li>
           <li><a href="fazcheckin.php" class="nav-link px-2">Lista de moradores</a></li>
         </ul>
 
