@@ -42,9 +42,7 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
         <div class="container">
-        <P>
-            Check-in > Histórico
-        </P>
+       
         <h1>Histórico</h1>
         <?php if (count($moradores) > 0): ?>
             
@@ -77,13 +75,30 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td><?php echo ($m['atendente'])?></td>
                 </tr>
             <?php endforeach; ?>
-        </table>
-    
+        </table>  
+        <button onclick="exportarTabelaExcel()" class="btn btn-primary">Exportar para excel</button>
+        <input type="file" id="arquivoExcel" accept=".xlsx, .xls" />
         </div>
         <?php endif; ?>
         
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">      
         </script>
+
+        <scrip src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+        <script> //para exportar tabela
+        function exportarTabelaExcel() {
+            // Seleciona a tabela do HTML
+            const tabela = document.querySelector("table");
+
+            // Converte para planilha
+            const workbook = XLSX.utils.table_to_book(tabela, { sheet: "Histórico" });
+
+            // Salva o arquivo
+            XLSX.writeFile(workbook, "histórico.xlsx");
+        }
+        </script>
+
     </body>
     </html>
