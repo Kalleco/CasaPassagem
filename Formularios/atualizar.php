@@ -9,7 +9,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])){
     rg = ?,
     cpf = ?,
     cidade_origem = ?,
-    beneficio = ?,
+    beneficio = ?
     WHERE id = ?
     ");
 
@@ -23,9 +23,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])){
         $_POST['id']
     ]);
 
-    echo "Cadastro atualizado com sucesso! <a href='../index.php'>Voltar</a>";
-} else {
-    echo "Erro ao atualizar cadastro. <a href='../index.php'>Voltar</a>";
-}
+    header("Location: ../fazcheckin.php?atualizado=1");
+    exit;
 
+} else {
+    header("Location: ../index.php");
+
+}
 ?>
+

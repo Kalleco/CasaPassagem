@@ -17,7 +17,7 @@ $hospedagemAtiva = $stmt->fetch();
 
 if ($hospedagemAtiva) {
     echo "Este morador já possui um check-in ativo.";
-    echo "<br><a href='../lista.php'>Voltar para a lista</a>";
+    header("Location: ../lista.php");
     exit;
 }
 

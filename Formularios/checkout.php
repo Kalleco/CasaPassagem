@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $hospedagem_id &&
             $hospedagem_id
         ]);
 
-        header("Location: ../checarlista.php");
+        header("Location: ../checarlista.php?checkout=1");
         exit;
 
     } catch (PDOException $e) {
@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $hospedagem_id &&
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> 
     </head>
     <body>
-    <header class="p-3 mb-4 border-down bg-white text-white">
+   <!-- <header class="p-3 mb-4 border-down bg-white text-white">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
           <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
@@ -76,7 +76,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $hospedagem_id &&
           <a href="cadmorador.html" class="btn btn-outline-success">Cadastro</a>
         </div>
     </div>
-    </header>
+    </header> -->
+
+    <div class="container">
+      <div class="row">
+      <div class="col-2">
+        <ul class="nav flex-column nav-fill">
+        <li><img src="https://www.aparecida.sp.gov.br/img/logo_rodape.png" class="px-3 mb-2"></li>
+        <li class="nav-item"><a href="index.html" class="nav-link px-2 mb-2 text-secondary">Home</a></li>
+          <li class="nav-item"><a href="lista.php" class="nav-link px-2 mb-2">Check-In</a></li>
+          <li class="nav-item"><a href="checarlista.php" class="nav-link px-2 mb-2">Histórico</a></li>
+          <li class="nav-item"><a href="fazcheckin.php" class="nav-link px-5 mb-5">Lista de moradores</a></li>
+          <li class="nav-item"><a href="cadmorador.html" class="btn btn-outline-success mb-5">Cadastro</a></li>
+        </ul>
+      </div>
+      <div class="col-10">
         <div class="container">
         <h1>Check-out</h1>
         <?php if ($hospedagem_id): ?>
@@ -115,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $hospedagem_id &&
         <?php else: ?>
             <p>Morador não encontrado.</p>
         <?php endif; ?>
-
+            </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">      
         </script>
     </body>

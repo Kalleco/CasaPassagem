@@ -9,7 +9,7 @@ try {
     $stmt1 = $db->prepare("DELETE FROM hospedagens WHERE id = ?");
     $stmt1->execute([$id]);
 
-      header("Location: ../lista.php");
+      header("Location: ../lista.php?cancelado=1");
         exit;
 
     } catch (PDOException $e) {
