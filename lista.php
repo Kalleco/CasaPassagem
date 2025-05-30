@@ -39,7 +39,6 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
       </div>
     </header> -->
-
     <div class="container">
       <div class="row">
       <div class="col-2">

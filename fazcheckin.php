@@ -2,10 +2,17 @@
 require 'Formularios/processo.php';
 // Verifica se o morador já existe no banco 
 
-$sql = "SELECT * from moradores"; // Preparando a consulta SQl segura
+$pesquisa = $_GET['nome'] ?? '';
 
-$stmt = $db->prepare($sql);
+if($pesquisa){
+  $stmt = $db->prepare("SELECT * FROM moradores WHERE nome LIKE ?");
+  $stmt->execute(["%$pesquisa%"]);
+}
+else{
+$stmt = $db->prepare("SELECT * from moradores"); // Preparando a consulta SQl segura
 $stmt->execute();
+}
+
 $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
@@ -51,6 +58,10 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <div class="col-10">
         <div class="container">
         <h1>Lista de moradores</h1>
+        <form method="get" action="fazcheckin.php">
+          <input type="text" class="form-control" placeholder="Pesquise pelo nome" name="nome" value=<?php echo htmlspecialchars($pesquisa);?>>
+          <button class="btn btn-primary" type="submit">Buscar</button>
+        </form><br>
         <?php if (count($moradores) > 0): ?>
         <table class="table table-bordered table-sm table-responsive">
             <tr>

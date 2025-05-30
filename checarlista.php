@@ -1,14 +1,25 @@
 <?php
 require 'Formularios/processo.php';
 
-$sql = "SELECT h.id AS hospedagens, h.banho, h.jantou, h.passagem, h.destino, h.atendente,
+$pesquisa = $_GET['nome'] ?? '';
+
+if($pesquisa){
+  $stmt = $db->prepare("SELECT h.id AS hospedagens, h.banho, h.jantou, h.passagem, h.destino, h.atendente,
 m.id AS morador_id, m.nome, m.data_nasc, m.rg, m.cpf, m.cidade_origem, m.beneficio, h.data_checkin, h.data_checkout
 FROM moradores m
 JOIN hospedagens h on m.id = h.morador_id
-WHERE h.data_checkout IS NOT NULL";
-
-$stmt = $db->prepare($sql);
+WHERE h.data_checkout IS NOT NULL and m.nome LIKE ?");
+  $stmt->execute(["%$pesquisa%"]);
+}
+else{
+$stmt = $db->prepare("SELECT h.id AS hospedagens, h.banho, h.jantou, h.passagem, h.destino, h.atendente,
+m.id AS morador_id, m.nome, m.data_nasc, m.rg, m.cpf, m.cidade_origem, m.beneficio, h.data_checkin, h.data_checkout
+FROM moradores m
+JOIN hospedagens h on m.id = h.morador_id
+WHERE h.data_checkout IS NOT NULL");
 $stmt->execute();
+}
+
 $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
@@ -56,6 +67,10 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="container">
        
         <h1>Histórico</h1>
+        <form method="get" action="">
+          <input type="text" class="form-control" placeholder="Pesquise pelo nome" name="nome" value=<?php echo htmlspecialchars($pesquisa);?>>
+          <button class="btn btn-primary" type="submit">Buscar</button>
+        </form><br>
         <?php if (count($moradores) > 0): ?>
             
         <table class="table table-bordered table-sm table-responsive">
@@ -99,7 +114,7 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">      
         </script>
 
-        <scrip src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 
         <script> //para exportar tabela
         function exportarTabelaExcel() {
