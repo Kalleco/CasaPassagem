@@ -70,8 +70,10 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="container pt-3">
         <h1>Histórico</h1>
         <form method="get" action="">
+          <div class="input-group">
           <input type="text" class="form-control" placeholder="Pesquise pelo nome" name="nome" value=<?php echo htmlspecialchars($pesquisa);?>>
           <button class="btn btn-primary" type="submit">Buscar</button>
+          </div>
         </form><br>
         <?php if (count($moradores) > 0): ?>
             

@@ -22,6 +22,7 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Lista de Moradores</title>
+        <link rel="stylesheet" href="css/style.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> 
     </head>
     <body>
@@ -62,8 +63,10 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="container pt-3">
         <h1>Lista de moradores</h1>
         <form method="get" action="fazcheckin.php">
+          <div class = "input-group">
           <input type="text" class="form-control" placeholder="Pesquise pelo nome" name="nome" value=<?php echo htmlspecialchars($pesquisa);?>>
           <button class="btn btn-primary" type="submit">Buscar</button>
+          </div>
         </form><br>
         <?php if (count($moradores) > 0): ?>
         <table class="table table-bordered table-sm table-responsive">
@@ -87,13 +90,11 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td>
                     <form method="get" action = "Formularios/checkin.php" onsubmit="return confirm('Deseja confirmar o check-in?')">
                     <input type="hidden" name="id" value="<?php echo $m['id']?>">
-                    <button class="btn btn-success" type = "submit">Check-in</button>
+                    <button class="btn-sm btn-success" type = "submit">Check-in</button>
                     </form>
-                </td>
-                <td>
                     <form method="get" action = "Formularios/editar.php" onsubmit="return confirm('Deseja editar o cadastro?')">
                     <input type="hidden" name="id" value="<?php echo $m['id']?>">
-                    <button class="btn btn-primary" type = "submit">Editar</button>
+                    <button class="btn-sm btn-primary" type = "submit">Editar</button>
                     </form>
                 </td>
             </tr>
