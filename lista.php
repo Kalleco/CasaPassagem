@@ -39,11 +39,14 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
       </div>
     </header> -->
-    <div class="container">
-      <div class="row">
-      <div class="col-2">
-        <ul class="nav flex-column nav-fill">
-        <li><img src="https://www.aparecida.sp.gov.br/img/logo_rodape.png" class="px-3 mb-2"></li>
+    
+      <div class="container-fluid">
+    <nav class="col-md d-none d-md-block bg-light sidebar vh-100 position-fixed border-end">
+      <div class="position-sticky pt-3">
+        <ul class="nav flex-column text-center">
+          <li class="mb-3">
+            <img src="https://www.aparecida.sp.gov.br/img/logo_rodape.png" class="img-fluid px-3" alt="Logo">
+          </li>
         <li class="nav-item"><a href="index.html" class="nav-link px-2 mb-2 text-secondary">Home</a></li>
           <li class="nav-item"><a href="lista.php" class="nav-link px-2 mb-2">Check-In</a></li>
           <li class="nav-item"><a href="checarlista.php" class="nav-link px-2 mb-2">Histórico</a></li>
@@ -51,8 +54,9 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
           <li class="nav-item"><a href="cadmorador.html" class="btn btn-outline-success mb-5">Cadastro</a></li>
         </ul>
       </div>
-      <div class="col-10">
-        <div class="container">
+      </nav>
+      <div>
+        <div class="container pt-3">
         <h1>Lista Check-in</h1>
         <?php if (count($moradores) > 0): ?>
         <table class="table table-bordered table-sm table-hover table-responsive">
