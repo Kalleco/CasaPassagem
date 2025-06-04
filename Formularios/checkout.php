@@ -98,32 +98,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $hospedagem_id &&
         <h1>Check-out</h1>
         <?php if ($hospedagem_id): ?>
             <form method = "post" action = "checkout.php?id=<?php echo $hospedagem_id ?>" onsubmit="return confirm('Deseja fazer o check-out?')">
-                <label for="jantou">Jantou:</label>
+            <div class = "input-group mb-3">
+            <span class = "input-group-text" for="jantou">Jantou:</span>
                 <select class ="form-select" name="jantou" required>
                     <option value="">Selecione</option>
                     <option value="Sim">Sim</option>
-                    <option value="Não">não</option>
-                </select><br>
+                    <option value="Não">Não</option>
+                </select></div><br>
 
-                <label for="banho">Tomou banho:</label>
+            <div class = "input-group mb-3">
+            <span class = "input-group-text" for="banho">Tomou banho:</span>
                 <select class ="form-select" name="banho" required>
                     <option value="">Selecione</option>
                     <option value="Sim">Sim</option>
-                    <option value="Não">não</option>
-                </select><br>
+                    <option value="Não">Não</option>
+                </select></div><br>
 
-                <label for="passagem">Recebeu passagem?:</label>
+            <div class = "input-group mb-3">
+            <span class = "input-group-text" for="passagem">Recebeu passagem:</span>
                 <select class ="form-select" name="passagem" required>
                     <option value="">Selecione</option>
                     <option value="Sim">Sim</option>
-                    <option value="Não">não</option>
-                </select><br>
+                    <option value="Não">Não</option>
+                </select></div><br>
 
-                <label for="destino">Destino:</label>
+            <div class = "input-group mb-3">
+            <span class = "input-group-text" for="destino">Destino:</span>
                 <input type="text" class="form-control" name="destino"><br>
+            </div><br>
 
-                <label for="atendente">Atendente:</label>
+            <div class = "input-group mb-3">
+            <span class = "input-group-text" for="atendente">Atendente:</span>
                 <input type="text" class="form-control" name="atendente"><br>
+            </div>
 
                 <button class="btn btn-success" type="submit">Finalizar Check-out</button>
                 <button type ="button" class="btn btn-secondary" onclick="window.location.href='../index.php'">Voltar</button><br>
