@@ -6,3 +6,36 @@
 form{
   display: inline;
 }
+
+.card{
+  width: 18rem; 
+}
+
+#cardcheckin{
+  background-color: green;
+  color: white;
+  border-radius: 1rem; 
+  box-shadow: 0 0 10px black;
+}
+
+#cardcheckout{
+  background-color: red;
+  color: white;
+  border-radius: 1rem; 
+  box-shadow: 0 0 10px black;
+}
+
+#cardcadastros{
+  background-color: blue;
+  color: white;
+  border-radius: 1rem; 
+  box-shadow: 0 0 10px black;
+}
+
+#vagasrestantes{
+  background-color: yellow;
+  color: black;
+  border-radius: 1rem; 
+  box-shadow: 0 0 10px black;
+}
+

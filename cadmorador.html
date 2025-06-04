@@ -46,32 +46,45 @@
       </nav>
       <div>
         <div class ="container pt-3">
+          <h1>
+            Cadastro de hospede
+          </h1>
         <form action ="Formularios/moradores.php" method = "POST">
+
+            <div class = "input-group mb-3">
             <span class="input-group-text" for="nome">Nome:</span>
             <input type="text" class="form-control" id="nome" name="nome" required><br>
-            
-            <span class="input-group-text" for="DataNasc">Data de nascimento</span>
+            </div>
+
+            <div class = "input-group mb-3">
+            <span class="input-group-text" for="DataNasc">Data de nascimento:</span>
             <input type="date" class="form-control" id="data_nasc" name="data_nasc" required><br>
-            
+            </div>
+
+            <div class = "input-group mb-3">
             <span class="input-group-text" for="CidadeOrigem">Cidade de origem:</span>
             <input type="text" class="form-control" id="cidade_origem" name="cidade_origem" required><br>
-            
+            </div>
+
+            <div class = "input-group mb-3">
             <span class="input-group-text" for="rg">RG:</span>
             <input type="text" class="form-control" id="rg" name="rg" required><br>
-            
+            </div>
+
+            <div class = "input-group mb-3">
             <span class="input-group-text" for="nome">CPF:</span>
             <input type="text" class="form-control" id="cpf" name="cpf" required><br>
+            </div>
 
+            <div class = "input-group mb-3">
             <span class="input-group-text" for="beneficio">Beneficio:</span>
             <input type="text" class="form-control" id="beneficio" name="beneficio"><br>
-            
+            </div>
 
             <button class="btn btn-success" type="submit" onclick="return validateForm()">Salvar</button>
             </form>
             
             <button type ="button" class="btn btn-secondary" onclick="window.location.href='index.php'">Voltar</button>
-            <button type ="button" class="btn btn-secondary" onclick="window.location.href='lista.php'">Lista Check-In</button>
-            <button type ="button" class="btn btn-secondary" onclick="window.location.href='checarlista.php'">Lista Check-Out</button>
             </div>
             </div>
             </div>

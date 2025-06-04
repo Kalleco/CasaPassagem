@@ -58,31 +58,50 @@
         </ul>
       </div>
       </nav>
+   
       <div>
         <div class ="container pt-3">
+      <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
+        <li class="breadcrumb-item"><a href="../fazcheckin.php">lista de moradores</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Editar cadastro</li>
+      </ol>
+      </nav>
         <h1>Editar Cadastro</h1>
         <?php if ($morador): ?>
             <form method = "post" action = "atualizar.php">
                 <input type="hidden" name="id" value="<?php echo $morador['id'] ?>">
 
-                <label for="nome">Nome:</label>
+                <div class = "input-group mb-3">
+                <span class="input-group-text" for="nome">Nome:</span>
                 <input type="text" class="form-control" name="nome" value="<?php echo $morador['nome'] ?>" required><br>
+                </div>
 
-                <label for="data_nasc">Data Nasc:</label>
+                <div class = "input-group mb-3">
+                <span class="input-group-text" for="datanasc">Data de nascimento</span>
                 <input type="date" class="form-control" name="data_nasc" value="<?php echo $morador['data_nasc'] ?>"><br>
+                </div>
 
-                <label for="rg">RG:</label>
+                <div class = "input-group mb-3">
+                <span class="input-group-text" for="rg">RG:</span>
                 <input type="text" class="form-control" name="rg" value="<?php echo $morador['rg'] ?>"><br>
+                </div>
 
-                <label for="cpf">CPF:</label>
+                <div class = "input-group mb-3">
+                <span class="input-group-text" for="cpf">CPF:</span>
                 <input type="text" class="form-control" name="cpf" value="<?php echo $morador['cpf'] ?>"><br>
+                </div>
 
-                <label for="cidade_origem">Cidade Origem:</label>
+                <div class = "input-group mb-3">
+                <span class="input-group-text" for="cidade_origem">Cidade de origem:</span>
                 <input type="text" class="form-control" name="cidade_origem" value="<?php echo $morador['cidade_origem'] ?>"><br>
+                </div>
 
-                <label for="beneficio">Beneficio:</label>
+                <div class = "input-group mb-3">
+                <span class="input-group-text" for="beneficio">Beneficio:</span>
                 <input type="text" class="form-control" name="beneficio" value="<?php echo $morador['beneficio'] ?>" required><br>
-
+                </div>
 
                 <input type="submit" class="btn btn-success" value="Editar Cadastro">
             </form>

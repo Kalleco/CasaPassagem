@@ -1,9 +1,29 @@
+<?php
+  require 'Formularios/processo.php';
+
+  $stmtativo = $db->prepare("select count(*) from hospedagens where data_checkout is null");
+  $stmtativo->execute();
+  $checkinativo = $stmtativo->fetchColumn();
+
+  $stmtinativo = $db->prepare("select count(*) from hospedagens");
+  $stmtinativo->execute();
+  $checkoutativo = $stmtinativo->fetchColumn();
+
+  $stmtcontagem = $db->prepare("select count(*) from moradores");
+  $stmtcontagem->execute();
+  $contagem = $stmtcontagem->fetchColumn();
+
+   $total_vagas = 40;
+   $vagas_restantes = $total_vagas - $checkinativo;     
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casa de passagem</title>
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> 
 </head>
     <body>
@@ -35,8 +55,45 @@
           <h1>Casa de passagem de Aparecida</h1>
 
           <h2>Bem-Vindo(a) ao sistema da casa de passagem!</h2>
+          <br>
+      <div class = "row justify-content-center bg-light border">
+        <div class = "col-md-3 mb-3">
+          <div class = "card" id = "vagasrestantes">
+          <div class = "card-body">
+            <h5 class = "card-title">Vagas restantes:</h5>
+            <h3 class = "card-text"><?php echo $vagas_restantes; ?></h3>
+        </div>
+        </div>
         </div>
 
+        <div class = "col-md-3 mb-3">
+          <div class = "card" id = "cardcheckin">
+          <div class = "card-body">
+            <h5 class = "card-title">Check in no momento:</h5>
+            <h3 class = "card-text"><?php echo $checkinativo; ?></h3>
+        </div>
+        </div>
+        </div>
+
+        <div class = "col-md-3 mb-3">
+        <div class = "card" id = "cardcheckout">
+          <div class = "card-body">
+            <h5 class = "card-title">Check out feitos:</h5>
+            <h3 class = "card-text"><?php echo $checkoutativo; ?></h3>
+        </div>
+          </div>
+        </div>
+
+          <div class = "col-md-3 mb-3">
+        <div class = "card" id = "cardcadastros">
+          <div class = "card-body">
+            <h5 class = "card-title">Usuarios cadastrados:</h5>
+            <h3 class = "card-text"><?php echo $contagem; ?></h3>
+        </div>
+          </div>
+        </div>
+        </div>
+        </div>    
       </div>
       </main>
 
