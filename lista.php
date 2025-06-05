@@ -18,6 +18,7 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Lista de Check-ins</title>
+        <link rel="stylesheet" href="css/style.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> 
     </head>
     <body>
@@ -82,11 +83,11 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td>
                 <form method="get" action = "Formularios/checkout.php" onsubmit="return confirm('Deseja confirmar o check-out?')">
                     <input type="hidden" name="id" value="<?php echo $m['hospedagens']?>">
-                    <button class="btn btn-success" type = "submit">Check-out</button>
+                    <button class="btn-sm btn-success" type = "submit">Check-out</button>
                 </form>
                 <form method="post" action = "Formularios/delete.php" onsubmit="return confirm('Confirma a exclusão do registro?')">
                     <input type="hidden" name="id" value="<?php echo $m['hospedagens']?>">
-                    <button class="btn btn-danger" type = "submit">Apagar</button>
+                    <button class="btn-sm btn-danger" type = "submit">Apagar</button>
                 </form>
                 </td>
                 </tr>
