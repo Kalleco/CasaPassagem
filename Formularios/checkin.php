@@ -5,8 +5,22 @@ if (!isset($_GET['id'])) {
     die("ID do morador não informado.");
 }
 
+$total_vagas = 40;
+
+$stmt = $db->prepare("select count(*) from hospedagens where data_checkout is null");
+$stmt->execute();
+$checkinativo = $stmt->fetchColumn();
+
+if($checkinativo >= $total_vagas){
+    echo "<script>
+        alert('Número de vagas atingido. Não é possível realizar o check-in');
+        window.location.href = '../lista.php'; // redireciona para a lista ou onde desejar
+          </script>";
+    exit;
+}
+
 $moradorId = $_GET['id'];
-$dataCheckin = date('d-m-y H:i:s');
+$dataCheckin = date('y-m-d H:i:s');
 
 // Verifica se o morador já tem hospedagem ativa
 $sql = "SELECT * FROM hospedagens WHERE morador_id = :id AND data_checkout IS NULL";

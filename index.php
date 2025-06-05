@@ -14,7 +14,7 @@
   $contagem = $stmtcontagem->fetchColumn();
 
    $total_vagas = 40;
-   $vagas_restantes = $total_vagas - $checkinativo;     
+   $vagas_restantes = max(0, $total_vagas - $checkinativo);     
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +56,7 @@
 
           <h2>Bem-Vindo(a) ao sistema da casa de passagem!</h2>
           <br>
-      <div class = "row justify-content-center bg-light border">
+      <div class = "row justify-content-center ">
         <div class = "col-md-3 mb-3">
           <div class = "card" id = "vagasrestantes">
           <div class = "card-body">
