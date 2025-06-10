@@ -13,8 +13,19 @@
   $stmtcontagem->execute();
   $contagem = $stmtcontagem->fetchColumn();
 
-   $total_vagas = 40;
-   $vagas_restantes = max(0, $total_vagas - $checkinativo);     
+  $stmtvagas = $db->prepare("SELECT total_vagas FROM vagas");
+  $stmtvagas->execute();
+  $total_vagas = $stmtvagas->fetchColumn();
+  $vagas_restantes = max(0, $total_vagas - $checkinativo);     
+
+  if($_SERVER['REQUEST_METHOD'] === 'POST' && ISSET($_POST['total_vagas'])){
+  $valoreditado = intval($_POST['total_vagas']);
+  $stmteditar = $db->prepare("SELECT total_vagas FROM vagas WHERE id = ?");
+  $stmteditar->execute([$valoreditado]);
+  }
+
+  $stmt = $db->query("SELECT total_vagas FROM vagas WHERE id = 1");
+  $total_vagas = $stmt->fetchColumn();
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +72,9 @@
           <div class = "card" id = "vagasrestantes">
           <div class = "card-body">
             <h5 class = "card-title">Vagas restantes:</h5>
-            <h3 class = "card-text"><?php echo $vagas_restantes; ?></h3>
+            <h3 class = "card-text"><?php echo $total_vagas; ?></h3>
+            
+            
         </div>
         </div>
         </div>

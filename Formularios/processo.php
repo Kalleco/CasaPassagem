@@ -30,4 +30,12 @@ $db->exec("
     FOREIGN KEY (morador_id) REFERENCES moradores(id)
     );
 ");
+
+$db->exec("
+CREATE TABLE IF NOT EXISTS vagas(
+   id INTEGER PRIMARY KEY AUTOINCREMENT,
+   local TEXT,
+   total_vagas INTERGER NOT NULL
+    );
+");
 ?>

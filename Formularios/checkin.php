@@ -5,7 +5,10 @@ if (!isset($_GET['id'])) {
     die("ID do morador não informado.");
 }
 
-$total_vagas = 40;
+$stmtvagas = $db->prepare("SELECT total_vagas FROM vagas");
+$stmtvagas->execute();
+$total_vagas = $stmtvagas->fetchColumn();
+
 
 $stmt = $db->prepare("select count(*) from hospedagens where data_checkout is null");
 $stmt->execute();

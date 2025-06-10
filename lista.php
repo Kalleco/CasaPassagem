@@ -10,6 +10,19 @@ ORDER BY h.data_checkin ASC";
 $stmt = $db->prepare($sql);
 $stmt->execute();
 $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$pesquisa = $_GET['nome'] ?? '';
+
+if($pesquisa){
+  $stmt = $db->prepare("SELECT * FROM moradores WHERE nome LIKE ?");
+  $stmt->execute(["%$pesquisa%"]);
+}
+else{
+$stmt = $db->prepare("SELECT * from moradores"); // Preparando a consulta SQl segura
+$stmt->execute();
+}
+
+$moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -59,6 +72,12 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <div>
         <div class="container pt-3">
         <h1>Lista Check-in</h1>
+          <form method="get" action="">
+          <div class="input-group">
+          <input type="text" class="form-control" placeholder="Pesquise pelo nome" name="nome" value=<?php echo htmlspecialchars($pesquisa);?>>
+          <button class="btn btn-primary" type="submit">Buscar</button>
+          </div>
+        </form><br>
         <?php if (count($moradores) > 0): ?>
         <table class="table table-bordered table-sm table-hover table-responsive">
             <tr>
@@ -94,6 +113,8 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <?php endforeach; ?>
         </table>
         </div>
+        <?php else: ?>
+          <p>Não foi efetuado nenhum check-in</p>
         <?php endif; ?>
         </div>
 

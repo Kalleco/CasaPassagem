@@ -112,6 +112,8 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
         </div>
         </div>
+        <?php else: ?>
+          <p>Não foi efetuado nenhum check-out!</p>
         <?php endif; ?>
 
 
