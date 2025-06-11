@@ -54,10 +54,10 @@
             <img src="https://www.aparecida.sp.gov.br/img/logo_rodape.png" class="img-fluid px-3" alt="Logo">
           </li>
         <li class="nav-item"><a href="index.html" class="nav-link px-2 mb-2 text-secondary">Home</a></li>
-          <li class="nav-item"><a href="lista.php" class="nav-link px-2 mb-2">Check-In</a></li>
-          <li class="nav-item"><a href="checarlista.php" class="nav-link px-2 mb-2">Histórico</a></li>
-          <li class="nav-item"><a href="fazcheckin.php" class="nav-link px-5 mb-5">Lista de moradores</a></li>
-          <li class="nav-item"><a href="cadmorador.html" class="btn btn-outline-success mb-5">Cadastro</a></li>
+          <li class="nav-item"><a href="Paginas/lista.php" class="nav-link px-2 mb-2">Check-In</a></li>
+          <li class="nav-item"><a href="Paginas/checarlista.php" class="nav-link px-2 mb-2">Histórico</a></li>
+          <li class="nav-item"><a href="Paginas/fazcheckin.php" class="nav-link px-5 mb-5">Lista de moradores</a></li>
+          <li class="nav-item"><a href="Paginas/cadmorador.html" class="btn btn-outline-success mb-5">Cadastro</a></li>
         </ul>
       </div>
       </nav>
