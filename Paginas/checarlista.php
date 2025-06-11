@@ -58,7 +58,7 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
           <li class="mb-3">
             <img src="https://www.aparecida.sp.gov.br/img/logo_rodape.png" class="img-fluid px-3" alt="Logo">
           </li>
-        <li class="nav-item"><a href="/index.html" class="nav-link px-2 mb-2 text-secondary">Home</a></li>
+        <li class="nav-item"><a href="index.html" class="nav-link px-2 mb-2 text-secondary">Home</a></li>
           <li class="nav-item"><a href="lista.php" class="nav-link px-2 mb-2">Check-In</a></li>
           <li class="nav-item"><a href="checarlista.php" class="nav-link px-2 mb-2">Histórico</a></li>
           <li class="nav-item"><a href="fazcheckin.php" class="nav-link px-5 mb-5">Lista de moradores</a></li>
