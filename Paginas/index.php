@@ -35,8 +35,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casa de passagem</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/navbar.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> 
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  </head>
     <body>
   <!--  <header class="p-3 mb-4 border-down bg-white text-dark">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -53,11 +55,25 @@
           <li class="mb-3">
             <img src="https://www.aparecida.sp.gov.br/img/logo_rodape.png" class="img-fluid px-3" alt="Logo">
           </li>
-        <li class="nav-item"><a href="index.html" class="nav-link px-2 mb-2 text-secondary">Home</a></li>
-          <li class="nav-item"><a href="lista.php" class="nav-link px-2 mb-2">Check-In</a></li>
-          <li class="nav-item"><a href="checarlista.php" class="nav-link px-2 mb-2">Histórico</a></li>
-          <li class="nav-item"><a href="fazcheckin.php" class="nav-link px-5 mb-5">Lista de moradores</a></li>
-          <li class="nav-item"><a href="cadmorador.html" class="btn btn-outline-success mb-5">Cadastro</a></li>
+        <li class="nav-item">
+        <i class="fa-solid fa-house">
+          <a href="index.html" class="px-2 mb-2 text-secondary">Home</a></li></i>
+          
+        <li class="nav-item">
+          <i class="fa-solid fa-check">
+          <a href="lista.php" class=" px-2 mb-2">Check-In</a></li></i>
+
+          <li class="nav-item">
+            <i class="fa-solid fa-book-open">
+            <a href="checarlista.php" class=" px-2 mb-2">Historico</a></i></li>
+
+          <li class="nav-item">
+            <i class="fa-solid fa-list">
+            <a href="fazcheckin.php" class="px-2 mb-2">Lista de moradores</a></li></i>
+
+          <li class="nav-item">
+            <i class="fa-solid">
+            <a href="cadmorador.html" class="btn btn-outline-success mb-5">Cadastro</a></li></i>
         </ul>
       </div>
       </nav>
