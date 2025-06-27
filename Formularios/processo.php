@@ -20,8 +20,8 @@ $db->exec("
  CREATE TABLE IF NOT EXISTS hospedagens(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     morador_id INTEGER,
-    data_checkin TEXT,
-    data_checkout TEXT,
+    data_checkin text,
+    data_checkout text,
     jantou TEXT,
     banho TEXT,
     passagem TEXT,

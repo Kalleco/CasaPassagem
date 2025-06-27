@@ -34,7 +34,7 @@ $hospedagemAtiva = $stmt->fetch();
 
 if ($hospedagemAtiva) {
     echo "Este morador já possui um check-in ativo.";
-    header("Location: ../lista.php");
+    header("Location: ../Paginas/lista.php");
     exit;
 }
 
@@ -46,6 +46,6 @@ $stmt->bindValue(':data', $dataCheckin);
 $stmt->execute();
 
 // Redireciona para a lista
-header("Location: ../lista.php");
+header("Location: ../Paginas/lista.php");
 exit;
 ?>

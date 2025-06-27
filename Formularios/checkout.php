@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $hospedagem_id &&
             $hospedagem_id
         ]);
 
-        header("Location: ../checarlista.php?checkout=1");
+        header("Location: ../Paginas/checarlista.php?checkout=1");
         exit;
 
     } catch (PDOException $e) {

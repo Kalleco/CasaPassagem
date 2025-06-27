@@ -33,50 +33,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casa de passagem</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/home.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <title>Casa de passagem</title>
   </head>
     <body>
-  <!--  <header class="p-3 mb-4 border-down bg-white text-dark">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
-        </a>
-      </div>
-    </header>  -->
-     <main>
-      <div class="container-fluid">
-    <nav class="col-md d-none d-md-block bg-light sidebar vh-100 position-fixed border-end">
-      <div class="position-sticky pt-3">
-        <ul class="nav flex-column text-center">
-          <li class="mb-3">
-            <img src="https://www.aparecida.sp.gov.br/img/logo_rodape.png" class="img-fluid px-3" alt="Logo">
+ <nav id="navbar">
+  <img src="https://www.aparecida.sp.gov.br/img/logo_rodape.png" class="img-fluid " alt="Logo">   
+   <ul id="nav_list">
+        <li class="nav-item active">
+            <i class="fa-solid fa-house"></i>
+          <a href="/Paginas/index.php">Dashboard</a>
           </li>
-        <li class="nav-item">
-        <i class="fa-solid fa-house">
-          <a href="index.html" class="px-2 mb-2 text-secondary">Home</a></li></i>
+            <li class="nav-item">
+          <i class="fa-solid fa-house"></i>
+          <a href="/Paginas/checarlista.php">Histórico</a>
+          </li>
+            <li class="nav-item">
+          <i class="fa-solid fa-book-open"></i>
+          <a href="/Paginas/lista.php">Check-in</a>
+          </li>
+          <li class="nav-item">
+            <i class="fa-solid fa-list"></i>
+          <a href="/Paginas/fazcheckin.php">Lista de moradores</a>
+          </li>
           
-        <li class="nav-item">
-          <i class="fa-solid fa-check">
-          <a href="lista.php" class=" px-2 mb-2">Check-In</a></li></i>
+      </ul>
 
-          <li class="nav-item">
-            <i class="fa-solid fa-book-open">
-            <a href="checarlista.php" class=" px-2 mb-2">Historico</a></i></li>
+      <a href ='cadmorador.html' class = 'btn btn-default'>
+          Cadastro
+      </a>
+     </nav> 
+  </header>
 
-          <li class="nav-item">
-            <i class="fa-solid fa-list">
-            <a href="fazcheckin.php" class="px-2 mb-2">Lista de moradores</a></li></i>
-
-          <li class="nav-item">
-            <i class="fa-solid">
-            <a href="cadmorador.html" class="btn btn-outline-success mb-5">Cadastro</a></li></i>
-        </ul>
-      </div>
-      </nav>
+     <main id = content>
+      <div class="container-fluid">
+    
       <div>
         <div class="container text-center pt-3">
           <h1>Casa de passagem de Aparecida</h1>
