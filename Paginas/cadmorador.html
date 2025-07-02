@@ -2,12 +2,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Lista de Check-ins</title>
+        <title>Casa de passagem - Cadastro de Hóspede</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="../css/navbar.css">
         <link rel="stylesheet" href="../css/home.css">
-        <link rel="stylesheet" href="../css/form.css">
       </head>
     <body>
   <header>
@@ -39,48 +38,56 @@
      </nav> 
   </header>
 
-   <main id="form-container">
-  <div class="form-header">
-    <h1 id="form-title">Cadastro de Hóspede</h1>
+<main id="form-container">
+    <div class="form-header">
+        <h1 id="form-title">Cadastro de Hóspede</h1>
     </div>
     
     <form action="/Formularios/moradores.php" method="POST" id="form">
-      <div id="input-container">
-        <div id="input-box">
-        <label for="nome" class="form-label">Nome:</label>
-        <input type="text" class="form-control" id="nome" name="nome" required>
-        </div>
+        <div id="input-container">
 
-      <div id="input-box">
-        <label for="data_nasc" class="form-label">Data de nascimento:</label>
-        <input type="date" class="form-control" id="data_nasc" name="data_nasc" required>
-      </div>
+            <div class="input-box">
+                <label for="nome" class="form-label">Nome:</label>
+                <input type="text" class="form-control" id="nome" name="nome" required>
+            </div>
 
-      <div id="input-box">
-        <label for="cidade_origem" class="form-label">Cidade de origem:</label>
-        <input type="text" class="form-control" id="cidade_origem" name="cidade_origem" required>
-      </div>
+            <div class="form-row">
+                <div class="input-box">
+                    <label for="data_nasc" class="form-label">Data de nascimento:</label>
+                    <input type="date" class="form-control" id="data_nasc" name="data_nasc" required>
+                </div>
 
-      <div id="input-box">
-        <label for="rg" class="form-label">RG:</label>
-        <input type="text" class="form-control" id="rg" name="rg" required>
-      </div>
+                <div class="input-box">
+                    <label for="cidade_origem" class="form-label">Cidade de origem:</label>
+                    <input type="text" class="form-control" id="cidade_origem" name="cidade_origem" required>
+                </div>
+            </div>
 
-      <div id="input-box">
-        <label for="cpf" class="form-label">CPF:</label>
-        <input type="text" class="form-control" id="cpf" name="cpf" required>
-      </div>
+            <div class="form-row">
+                <div class="input-box">
+                    <label for="rg" class="form-label">RG:</label>
+                    <input type="text" class="form-control" id="rg" name="rg" required>
+                </div>
+            
+                <div class="input-box">
+                    <label for="cpf" class="form-label">CPF:</label>
+                    <input type="text" class="form-control" id="cpf" name="cpf" required>
+                </div>
+            </div>
 
-      <div id="input-box">
-        <label for="beneficio" class="form-label">Benefício:</label>
-        <input type="text" class="form-control" id="beneficio" name="beneficio">
-      </div>
+            <div class="input-box">
+                <label for="beneficio" class="form-label">Benefício:</label>
+                <input type="text" class="form-control" id="beneficio" name="beneficio">
+            </div>
 
+        </div> 
+
+        <div class ="form-row">
         <button class="btn btn-success" type="submit">Salvar</button>
         <button type="button" class="btn btn-secondary" onclick="window.location.href='index.php'">Voltar</button>
+        </div>
     </form>
-</div>
-</main>
+ </main>
           
 
 

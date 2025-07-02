@@ -9,6 +9,10 @@
   justify-content: center;
 }
 
+html{
+  height: 100%;
+}
+
 
 
 .sidebar {
@@ -23,6 +27,8 @@ form{
 .card{
   width: 18rem; 
 }
+
+
 
 
 #cardcheckin{
