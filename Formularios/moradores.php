@@ -12,5 +12,6 @@ require 'processo.php';
     ]);
     $morador_id = $db->lastInsertId(); // Pega o id do morador que acabou de ser inserido
 
-echo "Check-in feito com sucesso! <a href='../Paginas/index.php'>Voltar</a>";
+header("Location: ../Paginas/lista.php");
+exit;
 ?>

@@ -18,11 +18,12 @@
   $total_vagas = $stmtvagas->fetchColumn();
   $vagas_restantes = max(0, $total_vagas - $checkinativo);     
 
-  if($_SERVER['REQUEST_METHOD'] === 'POST' && ISSET($_POST['total_vagas'])){
-  $valoreditado = intval($_POST['total_vagas']);
-  $stmteditar = $db->prepare("SELECT total_vagas FROM vagas WHERE id = ?");
-  $stmteditar->execute([$valoreditado]);
-  }
+ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['total_vagas'])) {
+    $novo_total_vagas = intval($_POST['total_vagas']);
+    
+    $stmteditar = $db->prepare("UPDATE vagas SET total_vagas = ? WHERE id = 1");
+    $stmteditar->execute([$novo_total_vagas]);
+}
 
   $stmt = $db->query("SELECT total_vagas FROM vagas WHERE id = 1");
   $total_vagas = $stmt->fetchColumn();
@@ -37,7 +38,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/home.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="../css/dashboard.css">
     <title>Casa de passagem</title>
   </head>
     <body>
@@ -63,66 +64,84 @@
           
       </ul>
 
-      <button class = "btn btn-default" onclick="redirecionar()">
+      <a href = "cadmorador.html" class = "btn btn-default">
           Cadastro
-      </button>
+      </a>
      </nav> 
   </header>
 
-     <main id = content>
-      <div class="container-fluid">
+<main id="dashboard-container">
+    <div class="dashboard-header">
+        <h1 class="title">Dashboard do <span>Sistema</span></h1>
+    </div>
+
     
-      <div>
-        <div class="container text-center pt-3">
-          <h1>Casa de passagem de Aparecida</h1>
-
-          <h2>Bem-Vindo(a) ao sistema da casa de passagem!</h2>
-          <br>
-      <div class = "row justify-content-center ">
-        <div class = "col-md-3 mb-3">
-          <div class = "card" id = "vagasrestantes">
-          <div class = "card-body">
-            <h5 class = "card-title">Vagas restantes:</h5>
-            <h3 class = "card-text"><?php echo $total_vagas; ?></h3>
-            
-            
-        </div>
-        </div>
+    
+    <div class="row">
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card card-vagas">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5 class="card-title">Vagas Restantes</h5>
+                        <h3 class="card-text"><?php echo htmlspecialchars($vagas_restantes); ?></h3>
+                    </div>
+                    <i class="bi bi-door-open-fill card-icon"></i>
+                </div>
+            </div>
         </div>
 
-        <div class = "col-md-3 mb-3">
-          <div class = "card" id = "cardcheckin">
-          <div class = "card-body">
-            <h5 class = "card-title">Check in no momento:</h5>
-            <h3 class = "card-text"><?php echo $checkinativo; ?></h3>
-        </div>
-        </div>
-        </div>
-
-        <div class = "col-md-3 mb-3">
-        <div class = "card" id = "cardcheckout">
-          <div class = "card-body">
-            <h5 class = "card-title">Check out feitos:</h5>
-            <h3 class = "card-text"><?php echo $checkoutativo; ?></h3>
-        </div>
-          </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card card-checkin">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5 class="card-title">Check-in Ativos</h5>
+                        <h3 class="card-text"><?php echo htmlspecialchars($checkinativo); ?></h3>
+                    </div>
+                    <i class="bi bi-person-check-fill card-icon"></i>
+                </div>
+            </div>
         </div>
 
-          <div class = "col-md-3 mb-3">
-        <div class = "card" id = "cardcadastros">
-          <div class = "card-body">
-            <h5 class = "card-title">Usuarios cadastrados:</h5>
-            <h3 class = "card-text"><?php echo $contagem; ?></h3>
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card card-checkout">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5 class="card-title">Check-outs Feitos</h5>
+                        <h3 class="card-text"><?php echo htmlspecialchars($checkoutativo); ?></h3>
+                    </div>
+                    <i class="bi bi-person-dash-fill card-icon"></i>
+                </div>
+            </div>
         </div>
-          </div>
-        </div>
-        </div>
-        </div>    
-      </div>
-      </main>
 
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">      
-    </script>
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card card-cadastros">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5 class="card-title">Usuários Cadastrados</h5>
+                        <h3 class="card-text"><?php echo htmlspecialchars($contagem); ?></h3>
+                    </div>
+                    <i class="bi bi-people-fill card-icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<h4>Editar Total de Vagas</h4>
+<form method="POST" action="">
+    <div class="input-group" style="max-width: 300px;">
+        <input 
+            type="number" 
+            class="form-control" 
+            name="total_vagas" 
+            value="<?php echo htmlspecialchars($total_vagas); ?>" 
+            required
+        >
+        <button class="btn btn-primary" type="submit">Salvar</button>
+    </div>
+</form>
+
+</main>
 
     </body>
 </html>

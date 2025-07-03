@@ -39,11 +39,11 @@
 }
 
 .btn-default:hover{
-    background-color: rgb(65, 120, 240);
+    background-color: rgb(9, 49, 231);
 }
 
 span{
-    color:rgba(12, 72, 201, 0.959);
+    color: rgb(9, 49, 231);
 }
 
 #input-container{
@@ -86,6 +86,32 @@ span{
     font-size: 15px;
     font-weight: 500;   
     box-shadow: 0px 10px 15px -3px;
+    cursor: pointer;
+}
+
+.btn-danger{
+    background-color: red;
+    display: flex;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;   
+    box-shadow: 0px 10px 15px -3px;
+    cursor: pointer;
+}
+
+.btn-primary{
+    background-color: rgb(9, 49, 231);
+    color: white;
+    display: flex;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;   
+    box-shadow: 0px 10px 15px -3px;
+    cursor: pointer;
 }
 
 form{
@@ -139,4 +165,20 @@ form{
     border-radius: 8px;
     font-weight: 500;
     padding: 10px;
+}
+
+.input-group{
+    display: flex;
+    width: 100%;
+}
+
+.input-group .form-control {
+    flex: 1;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.input-group .btn{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }

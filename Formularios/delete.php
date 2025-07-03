@@ -9,7 +9,7 @@ try {
     $stmt1 = $db->prepare("DELETE FROM hospedagens WHERE id = ?");
     $stmt1->execute([$id]);
 
-      header("Location: ../lista.php?cancelado=1");
+      header("Location: ../Paginas/lista.php?cancelado=1");
         exit;
 
     } catch (PDOException $e) {
@@ -17,7 +17,7 @@ try {
     }
 
 } else {
-    echo "Erro ao cancelar check-in. <a href='../index.php'>Voltar</a>";
+    echo "Erro ao cancelar check-in. <a href='../Paginas/lista.php'>Voltar</a>";
 
 }
 

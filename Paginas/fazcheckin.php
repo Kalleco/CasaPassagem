@@ -25,7 +25,6 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/home.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   </head>
     <body>
@@ -57,55 +56,65 @@ $moradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
      </nav> 
   </header>
 
-      <main id="content">
-        <div class="container pt-3">
-        <h1>Lista de moradores</h1>
-        <form method="get" action="fazcheckin.php">
-          <div class = "input-group">
-          <input type="text" class="form-control" placeholder="Pesquise pelo nome" name="nome" value=<?php echo htmlspecialchars($pesquisa);?>>
-          <button class="btn btn-primary" type="submit">Buscar</button>
-          </div>
-        </form><br>
-        <?php if (count($moradores) > 0): ?>
-        <table class="table table-bordered table-sm table-responsive">
-            <tr>
-                <th>Nome:</th>
-                <th>Data Nasc:</th>
-                <th>RG:</th>
-                <th>CPF:</th>
-                <th>Cidade Origem:</th>
-                <th>Beneficio:</th>
-                <th>AÇÃO:</th>
-            </tr>
-            <?php foreach ($moradores as $m): ?>
-            <tr>
-                <td><?php echo ($m['nome'])?></td>
-                <td><?php echo ($m['data_nasc'])?></td>
-                <td><?php echo ($m['rg'])?></td>
-                <td><?php echo ($m['cpf'])?></td>
-                <td><?php echo ($m['cidade_origem'])?></td>
-                <td><?php echo ($m['beneficio'])?></td>
-                <td>
-                    <form method="get" action = "/Formularios/checkin.php" onsubmit="return confirm('Deseja confirmar o check-in?')">
-                    <input type="hidden" name="id" value="<?php echo $m['id']?>">
-                    <button class="btn-sm btn-success" type = "submit">Check-in</button>
-                    </form>
-                    <form method="get" action = "/Formularios/editar.php" onsubmit="return confirm('Deseja editar o cadastro?')">
-                    <input type="hidden" name="id" value="<?php echo $m['id']?>">
-                    <button class="btn-sm btn-primary" type = "submit">Editar</button>
-                    </form>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </table>
-        <?php else: ?>
-            <p>Nenhum morador encontrado.</p>
-        <?php endif; ?>
-          </div>
-          </main>
+ <main id="form-container">
+    <div class="form-header">
+        <h1 class="title"> 
+          Histórico de
+          <span>hospedagens</span>
+        </h1>
+        <form method="get" action="">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Pesquise pelo nome" name="nome" value="<?php echo htmlspecialchars($pesquisa); ?>">
+                <button class="btn btn-primary" type="submit">Buscar</button>
+            </div>
+        </form>
+    </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">      
-        </script>
+        <?php if (count($moradores) > 0): ?>
+            <div class="table-responsive mt-4">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Data Nasc.</th>
+                            <th>RG</th>
+                            <th>CPF</th>
+                            <th>Cidade Origem</th>
+                            <th>Benefício</th>
+                            <th class="text-center">Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($moradores as $m): ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($m['nome']); ?></td>
+                                <td><?php echo htmlspecialchars($m['data_nasc']); ?></td>
+                                <td><?php echo htmlspecialchars($m['rg']); ?></td>
+                                <td><?php echo htmlspecialchars($m['cpf']); ?></td>
+                                <td><?php echo htmlspecialchars($m['cidade_origem']); ?></td>
+                                <td><?php echo htmlspecialchars($m['beneficio']); ?></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <form method="get" action="/Formularios/checkin.php" onsubmit="return confirm('Deseja confirmar o check-in?')">
+                                            <input type="hidden" name="id" value="<?php echo $m['id']; ?>">
+                                            <button class="btn btn-sm btn-success" type="submit">Check-in</button>
+                                        </form>
+                                        <form method="get" action="/Formularios/editar.php" onsubmit="return confirm('Deseja editar o cadastro?')">
+                                            <input type="hidden" name="id" value="<?php echo $m['id']; ?>">
+                                            <button class="btn btn-sm btn-primary" type="submit">Editar</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        <?php else: ?>
+            <p class="mt-4">Nenhum morador encontrado.</p>
+        <?php endif; ?>
+    </div>
+</main>
 
           <?php if (isset($_GET['atualizado']) && $_GET['atualizado'] == 1): ?>
         <script>
